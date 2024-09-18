@@ -1,0 +1,45 @@
+using System;
+ 
+class GFG {
+ 
+    // function to find final position of
+    // robot after the complete movement
+    static void finalPosition(String move)
+    {
+        int l = move.Length;
+        int countN = 0, countE = 0;
+        int countS = 0, countW = 0;
+ 
+        // traverse the instruction string
+        // 'move'
+        for (int i = 0; i < l; i++)
+        {
+           // for each movement increment
+            // its respective counter
+            if (move[i] == 'N')
+                countN++;
+ 
+            else if (move[i] == 'E')
+                countE++;
+ 
+            else if (move[i] == 'S')
+                countS++;
+ 
+            else if (move[i] == 'W')
+                countW++;
+        }
+ 
+        // required final position of robot
+        Console.WriteLine("Final Position: ("
+                          + (countS - countW) + ", "
+                          + (countN - countE) + ")");
+    }
+ 
+    // Driver code
+    public static void Main()
+    {
+        String move = "NSEWNNESWNENSSW";
+       char[] c= move.ToCharArray();
+        finalPosition(move);
+    }
+}
